@@ -44,6 +44,22 @@ func (s *permCheckerSuite) TestPermChecker(c *gc.C) {
 	c.Assert(err, gc.IsNil)
 	c.Assert(ok, gc.Equals, true)
 
+	// If the perms allow everyone@somewhere, it's ok.
+	ok, err = pc.Allow("bob@somewhere", []string{"everyone@somewhere"})
+	c.Assert(err, gc.IsNil)
+	c.Assert(ok, gc.Equals, true)
+
+	// Check that the everyone@x logic works with multiple @s.
+	ok, err = pc.Allow("bob@foo@somewhere@else", []string{"everyone@somewhere@else"})
+	c.Assert(err, gc.IsNil)
+	c.Assert(ok, gc.Equals, true)
+
+	// Check that we're careful enough about "everyone" as a prefix
+	// to a user name.
+	ok, err = pc.Allow("bobx", []string{"everyonex"})
+	c.Assert(err, gc.IsNil)
+	c.Assert(ok, gc.Equals, false)
+
 	// If the perms allow the user itself, it's ok
 	ok, err = pc.Allow("bob", []string{"noone", "bob"})
 	c.Assert(err, gc.IsNil)

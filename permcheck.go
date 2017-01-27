@@ -4,6 +4,7 @@
 package idmclient
 
 import (
+	"strings"
 	"time"
 
 	"gopkg.in/errgo.v1"
@@ -40,7 +41,20 @@ func (c *PermChecker) Allow(username string, acl []string) (bool, error) {
 		return false, nil
 	}
 	for _, name := range acl {
-		if name == "everyone" || name == username {
+		if name == username {
+			return true, nil
+		}
+		suffix := strings.TrimPrefix(name, "everyone")
+		if len(suffix) == len(name) {
+			continue
+		}
+		if suffix != "" && suffix[0] != '@' {
+			continue
+		}
+		// name is either "everyone" or "everyone@somewhere". We consider
+		// the user to be part of everyone@somewhere if their username has
+		// the suffix @somewhere.
+		if strings.HasSuffix(username, suffix) {
 			return true, nil
 		}
 	}
