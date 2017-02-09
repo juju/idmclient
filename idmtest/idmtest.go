@@ -10,11 +10,13 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"strings"
 	"sync"
 
 	"github.com/juju/httprequest"
 	"github.com/julienschmidt/httprouter"
 	"gopkg.in/errgo.v1"
+	"gopkg.in/juju/names.v2"
 	"gopkg.in/macaroon-bakery.v1/bakery"
 	"gopkg.in/macaroon-bakery.v1/bakery/checkers"
 	"gopkg.in/macaroon-bakery.v1/httpbakery"
@@ -218,8 +220,18 @@ func (srv *Server) user(name string) *user {
 }
 
 func (srv *Server) check(req *http.Request, cavId, cav string) ([]checkers.Caveat, error) {
-	if cav != "is-authenticated-user" {
+	cond, arg, err := checkers.ParseCaveat(cav)
+	if err != nil || cond != "is-authenticated-user" {
 		return nil, errgo.Newf("unknown third party caveat %q", cav)
+	}
+	if len(arg) > 0 {
+		if !strings.HasPrefix(arg, "@") {
+			return nil, errgo.Newf("unknown third party caveat %q", cav)
+		}
+		domain := strings.TrimPrefix(arg, "@")
+		if !names.IsValidUserDomain(domain) {
+			return nil, errgo.Newf("invalid domain %q", domain)
+		}
 	}
 
 	// First check if we have a login cookie so that we can avoid
