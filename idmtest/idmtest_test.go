@@ -46,6 +46,68 @@ func (*suite) TestDischarge(c *gc.C) {
 	})
 }
 
+func (*suite) TestDischargeConditionWithDomain(c *gc.C) {
+	srv := idmtest.NewServer()
+	srv.AddUser("bob")
+	client := srv.Client("bob")
+	bsvc, err := bakery.NewService(bakery.NewServiceParams{
+		Locator: srv,
+	})
+	c.Assert(err, gc.IsNil)
+	m, err := bsvc.NewMacaroon("", nil, []checkers.Caveat{{
+		Location:  srv.URL.String() + "/v1/discharger",
+		Condition: "is-authenticated-user @test-domain",
+	}})
+	c.Assert(err, gc.IsNil)
+
+	ms, err := client.DischargeAll(m)
+	c.Assert(err, gc.IsNil)
+
+	// Make sure that the macaroon discharged correctly and that it
+	// has the right declared caveats.
+	attrs, err := bsvc.CheckAny([]macaroon.Slice{ms}, nil, checkers.New())
+	c.Assert(err, gc.IsNil)
+	c.Assert(attrs, jc.DeepEquals, map[string]string{
+		"username": "bob",
+	})
+}
+
+func (*suite) TestDischargeConditionWithBadArgument(c *gc.C) {
+	srv := idmtest.NewServer()
+	srv.AddUser("bob")
+	client := srv.Client("bob")
+	bsvc, err := bakery.NewService(bakery.NewServiceParams{
+		Locator: srv,
+	})
+	c.Assert(err, gc.IsNil)
+	m, err := bsvc.NewMacaroon("", nil, []checkers.Caveat{{
+		Location:  srv.URL.String() + "/v1/discharger",
+		Condition: "is-authenticated-user +test-domain",
+	}})
+	c.Assert(err, gc.IsNil)
+
+	_, err = client.DischargeAll(m)
+	c.Assert(err, gc.ErrorMatches, `cannot get discharge from "http://.*/v1/discharger": third party refused discharge: cannot discharge: unknown third party caveat "is-authenticated-user \+test-domain"`)
+}
+
+func (*suite) TestDischargeConditionWithBadDomain(c *gc.C) {
+	srv := idmtest.NewServer()
+	srv.AddUser("bob")
+	client := srv.Client("bob")
+	bsvc, err := bakery.NewService(bakery.NewServiceParams{
+		Locator: srv,
+	})
+	c.Assert(err, gc.IsNil)
+	m, err := bsvc.NewMacaroon("", nil, []checkers.Caveat{{
+		Location:  srv.URL.String() + "/v1/discharger",
+		Condition: "is-authenticated-user @-test-domain",
+	}})
+	c.Assert(err, gc.IsNil)
+
+	_, err = client.DischargeAll(m)
+	c.Assert(err, gc.ErrorMatches, `cannot get discharge from "http://.*/v1/discharger": third party refused discharge: cannot discharge: invalid domain "-test-domain"`)
+}
+
 func (*suite) TestDischargeDefaultUser(c *gc.C) {
 	srv := idmtest.NewServer()
 	srv.SetDefaultUser("bob")
