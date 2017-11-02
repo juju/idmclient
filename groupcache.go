@@ -11,7 +11,7 @@ import (
 	"golang.org/x/net/context"
 	"gopkg.in/errgo.v1"
 
-	"github.com/juju/idmclient/params"
+	"gopkg.in/juju/idmclient.v2/params"
 )
 
 // GroupCache holds a cache of group membership information.
