@@ -8,7 +8,7 @@ package ussodischarge
 import (
 	stdurl "net/url"
 
-	"github.com/juju/httprequest"
+	"gopkg.in/juju/httprequest.v2"
 	"golang.org/x/net/context"
 	errgo "gopkg.in/errgo.v1"
 	"gopkg.in/macaroon-bakery.v2/bakery"

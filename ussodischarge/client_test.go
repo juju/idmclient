@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/juju/httprequest"
+	"gopkg.in/juju/httprequest.v2"
 	jc "github.com/juju/testing/checkers"
 	"golang.org/x/net/context"
 	gc "gopkg.in/check.v1"
@@ -16,8 +16,8 @@ import (
 	"gopkg.in/macaroon-bakery.v2/httpbakery"
 	"gopkg.in/macaroon.v2"
 
-	"github.com/juju/idmclient/params"
-	"github.com/juju/idmclient/ussodischarge"
+	"gopkg.in/juju/idmclient.v2/params"
+	"gopkg.in/juju/idmclient.v2/ussodischarge"
 )
 
 var _ httpbakery.Interactor = (*ussodischarge.Interactor)(nil)

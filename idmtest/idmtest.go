@@ -13,7 +13,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/juju/httprequest"
+	"gopkg.in/juju/httprequest.v2"
 	"golang.org/x/net/context"
 	"gopkg.in/errgo.v1"
 	"gopkg.in/macaroon-bakery.v2/bakery"
@@ -24,8 +24,8 @@ import (
 	"gopkg.in/macaroon-bakery.v2/httpbakery/agent"
 	macaroon "gopkg.in/macaroon.v2"
 
-	"github.com/juju/idmclient"
-	"github.com/juju/idmclient/params"
+	"gopkg.in/juju/idmclient.v2"
+	"gopkg.in/juju/idmclient.v2/params"
 )
 
 // GroupListGroup is the group that users must belong to in order to

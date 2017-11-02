@@ -11,8 +11,8 @@ import (
 	"gopkg.in/macaroon-bakery.v2/bakery/identchecker"
 	"gopkg.in/macaroon-bakery.v2/httpbakery"
 
-	"github.com/juju/idmclient"
-	"github.com/juju/idmclient/idmtest"
+	"gopkg.in/juju/idmclient.v2"
+	"gopkg.in/juju/idmclient.v2/idmtest"
 )
 
 type clientSuite struct{}

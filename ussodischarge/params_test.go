@@ -8,7 +8,7 @@ import (
 
 	gc "gopkg.in/check.v1"
 
-	"github.com/juju/idmclient/ussodischarge"
+	"gopkg.in/juju/idmclient.v2/ussodischarge"
 )
 
 type paramsSuite struct {

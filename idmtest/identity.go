@@ -9,7 +9,7 @@ import (
 	"gopkg.in/macaroon-bakery.v2/bakery/checkers"
 	"gopkg.in/macaroon-bakery.v2/bakery/identchecker"
 
-	"github.com/juju/idmclient"
+	"gopkg.in/juju/idmclient.v2"
 )
 
 // identityClient implement identchecker.IdentityClient. This is used because

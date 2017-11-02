@@ -4,11 +4,11 @@
 package idmclient
 
 import (
-	"github.com/juju/httprequest"
+	"gopkg.in/juju/httprequest.v2"
 	"golang.org/x/net/context"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 
-	"github.com/juju/idmclient/params"
+	"gopkg.in/juju/idmclient.v2/params"
 )
 
 type client struct {

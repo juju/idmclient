@@ -8,7 +8,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/juju/httprequest"
+	"gopkg.in/juju/httprequest.v2"
 	"gopkg.in/errgo.v1"
 	"gopkg.in/juju/names.v2"
 	"gopkg.in/macaroon-bakery.v2/bakery"

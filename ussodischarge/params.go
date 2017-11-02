@@ -7,7 +7,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 
-	"github.com/juju/httprequest"
+	"gopkg.in/juju/httprequest.v2"
 	errgo "gopkg.in/errgo.v1"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 	"gopkg.in/macaroon-bakery.v2/httpbakery"
