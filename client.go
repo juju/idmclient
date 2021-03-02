@@ -8,15 +8,15 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery/checkers"
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery/identchecker"
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/httpbakery"
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/httpbakery/agent"
 	"golang.org/x/net/context"
 	"gopkg.in/errgo.v1"
 	"gopkg.in/httprequest.v1"
-	"gopkg.in/macaroon-bakery.v2/bakery/checkers"
-	"gopkg.in/macaroon-bakery.v2/bakery/identchecker"
-	"gopkg.in/macaroon-bakery.v2/httpbakery"
-	"gopkg.in/macaroon-bakery.v2/httpbakery/agent"
 
-	"gopkg.in/juju/idmclient.v1/params"
+	"github.com/juju/idmclient/v2/params"
 )
 
 // Note: tests for this code are in the server implementation.
