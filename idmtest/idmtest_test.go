@@ -4,16 +4,16 @@
 package idmtest_test
 
 import (
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery"
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery/identchecker"
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/httpbakery"
 	jc "github.com/juju/testing/checkers"
 	"golang.org/x/net/context"
 	gc "gopkg.in/check.v1"
-	"gopkg.in/macaroon-bakery.v2/bakery"
-	"gopkg.in/macaroon-bakery.v2/bakery/identchecker"
-	"gopkg.in/macaroon-bakery.v2/httpbakery"
 
-	"gopkg.in/juju/idmclient.v1"
-	"gopkg.in/juju/idmclient.v1/idmtest"
-	idmparams "gopkg.in/juju/idmclient.v1/params"
+	"github.com/juju/idmclient/v2"
+	"github.com/juju/idmclient/v2/idmtest"
+	idmparams "github.com/juju/idmclient/v2/params"
 )
 
 type suite struct{}

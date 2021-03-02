@@ -7,16 +7,16 @@ import (
 	"net/http"
 	"net/http/httptest"
 
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/httpbakery"
 	"github.com/juju/testing"
 	jc "github.com/juju/testing/checkers"
 	"github.com/juju/usso"
 	"golang.org/x/net/context"
 	gc "gopkg.in/check.v1"
-	errgo "gopkg.in/errgo.v1"
+	"gopkg.in/errgo.v1"
 	"gopkg.in/httprequest.v1"
-	"gopkg.in/macaroon-bakery.v2/httpbakery"
 
-	"gopkg.in/juju/idmclient.v1/ussologin"
+	"github.com/juju/idmclient/v2/ussologin"
 )
 
 type interactorSuite struct {

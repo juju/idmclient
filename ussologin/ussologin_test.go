@@ -14,10 +14,10 @@ import (
 	"github.com/juju/usso"
 	"golang.org/x/net/context"
 	gc "gopkg.in/check.v1"
-	errgo "gopkg.in/errgo.v1"
+	"gopkg.in/errgo.v1"
 	"gopkg.in/juju/environschema.v1/form"
 
-	"gopkg.in/juju/idmclient.v1/ussologin"
+	"github.com/juju/idmclient/v2/ussologin"
 )
 
 type storeSuite struct {

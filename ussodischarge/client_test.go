@@ -7,17 +7,17 @@ import (
 	"net/http"
 	"net/http/httptest"
 
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery"
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/httpbakery"
 	jc "github.com/juju/testing/checkers"
 	"golang.org/x/net/context"
 	gc "gopkg.in/check.v1"
-	errgo "gopkg.in/errgo.v1"
+	"gopkg.in/errgo.v1"
 	"gopkg.in/httprequest.v1"
-	"gopkg.in/macaroon-bakery.v2/bakery"
-	"gopkg.in/macaroon-bakery.v2/httpbakery"
 	"gopkg.in/macaroon.v2"
 
-	"gopkg.in/juju/idmclient.v1/params"
-	"gopkg.in/juju/idmclient.v1/ussodischarge"
+	"github.com/juju/idmclient/v2/params"
+	"github.com/juju/idmclient/v2/ussodischarge"
 )
 
 var _ httpbakery.Interactor = (*ussodischarge.Interactor)(nil)
