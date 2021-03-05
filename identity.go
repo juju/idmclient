@@ -1,8 +1,8 @@
 package idmclient
 
 import (
-	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery/identchecker"
 	"golang.org/x/net/context"
+	"gopkg.in/macaroon-bakery.v3/bakery/identchecker"
 )
 
 // Identity represents a IDM identity. It includes bakery.ACLIdentity but

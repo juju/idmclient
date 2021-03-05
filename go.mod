@@ -3,7 +3,6 @@ module github.com/juju/idmclient/v2
 go 1.14
 
 require (
-	github.com/go-macaroon-bakery/macaroon-bakery/v3 v3.0.0-20210302105820-5587392d1f47
 	github.com/juju/errors v0.0.0-20150916125642-1b5e39b83d18 // indirect
 	github.com/juju/loggo v0.0.0-20170605014607-8232ab8918d9 // indirect
 	github.com/juju/retry v0.0.0-20151029024821-62c620325291 // indirect
@@ -17,6 +16,6 @@ require (
 	gopkg.in/httprequest.v1 v1.2.0
 	gopkg.in/juju/environschema.v1 v1.0.0
 	gopkg.in/juju/names.v2 v2.0.0-20170814040430-73ecf03dfbe6
-	gopkg.in/macaroon-bakery.v2 v2.2.0 // indirect
+	gopkg.in/macaroon-bakery.v3 v3.0.0-20210305063614-792624751518
 	gopkg.in/macaroon.v2 v2.1.0
 )
