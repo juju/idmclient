@@ -4,10 +4,10 @@
 package idmclient
 
 import (
-	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery"
 	"github.com/juju/idmclient/v2/params"
 	"golang.org/x/net/context"
 	"gopkg.in/httprequest.v1"
+	"gopkg.in/macaroon-bakery.v3/bakery"
 )
 
 type client struct {
