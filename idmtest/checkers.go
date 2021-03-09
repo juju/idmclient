@@ -4,9 +4,9 @@
 package idmtest
 
 import (
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery/checkers"
 	"golang.org/x/net/context"
 	"gopkg.in/errgo.v1"
-	"gopkg.in/macaroon-bakery.v3/bakery/checkers"
 )
 
 const idmtestNamespace = "github.com/juju/idmclient/idmtest"
