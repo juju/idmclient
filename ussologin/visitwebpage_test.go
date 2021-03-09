@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/httpbakery"
 	"github.com/juju/testing"
 	jc "github.com/juju/testing/checkers"
 	"github.com/juju/usso"
@@ -14,7 +15,6 @@ import (
 	gc "gopkg.in/check.v1"
 	"gopkg.in/errgo.v1"
 	"gopkg.in/httprequest.v1"
-	"gopkg.in/macaroon-bakery.v3/httpbakery"
 
 	"github.com/juju/idmclient/v2/ussologin"
 )

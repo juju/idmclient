@@ -4,12 +4,12 @@
 package idmtest_test
 
 import (
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery"
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery/identchecker"
+	"github.com/go-macaroon-bakery/macaroon-bakery/v3/httpbakery"
 	jc "github.com/juju/testing/checkers"
 	"golang.org/x/net/context"
 	gc "gopkg.in/check.v1"
-	"gopkg.in/macaroon-bakery.v3/bakery"
-	"gopkg.in/macaroon-bakery.v3/bakery/identchecker"
-	"gopkg.in/macaroon-bakery.v3/httpbakery"
 
 	"github.com/juju/idmclient/v2"
 	"github.com/juju/idmclient/v2/idmtest"
