@@ -7,7 +7,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/juju/utils/cache"
+	"github.com/juju/utils/v3/cache"
 	"golang.org/x/net/context"
 	"gopkg.in/errgo.v1"
 
