@@ -7,7 +7,7 @@ require (
 	github.com/juju/names/v4 v4.0.0-20220207005702-9c6532a52823
 	github.com/juju/testing v0.0.0-20220203020004-a0ff61f03494
 	github.com/juju/usso v1.0.1
-	github.com/juju/utils v0.0.0-20200116185830-d40c2fe10647
+	github.com/juju/utils/v3 v3.0.0-20220203023959-c3fbc78a33b0
 	golang.org/x/net v0.0.0-20211216030914-fe4d6282115f
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
 	gopkg.in/errgo.v1 v1.0.1
@@ -27,7 +27,6 @@ require (
 	github.com/juju/mgo/v2 v2.0.0-20220111072304-f200228f1090 // indirect
 	github.com/juju/retry v0.0.0-20220204093819-62423bf33287 // indirect
 	github.com/juju/schema v1.0.1-0.20190814234152-1f8aaeef0989 // indirect
-	github.com/juju/utils/v3 v3.0.0-20220203023959-c3fbc78a33b0 // indirect
 	github.com/juju/version/v2 v2.0.0-20220204124744-fc9915e3d935 // indirect
 	github.com/juju/webbrowser v1.0.0 // indirect
 	github.com/julienschmidt/httprouter v1.3.0 // indirect
