@@ -9,9 +9,9 @@ import (
 	"unicode/utf8"
 
 	"github.com/go-macaroon-bakery/macaroon-bakery/v3/bakery"
+	"github.com/juju/names/v4"
 	"gopkg.in/errgo.v1"
 	"gopkg.in/httprequest.v1"
-	"gopkg.in/juju/names.v2"
 	"gopkg.in/macaroon.v2"
 )
 
