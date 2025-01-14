@@ -7,6 +7,7 @@ package ussologin
 
 import (
 	"encoding/json"
+	"io"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -30,6 +31,14 @@ var (
 	passKey = "Password"
 	otpKey  = "Two-factor auth (Enter for none)"
 )
+
+// MakeIOFiller returns a form filler that reads from in and writes to out.
+func MakeIOFiller(in io.Reader, out io.Writer) form.Filler {
+	return form.IOFiller{
+		In:  in,
+		Out: out,
+	}
+}
 
 // A FormTokenGetter is a TokenGetter implementation that presents a form
 // to the user to get login details, and then uses those to get a token
